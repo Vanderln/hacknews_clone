@@ -1,0 +1,27 @@
+<div class="container">
+
+<p><a href="http://<%=@post.url%>"><%=@post.title%></a>(<%=@post.url%>)</p>
+ <ul>
+    <li><span class="second"><a href="/user/<%=@post.user_id%>">by 
+      <%=@post.user.username%></a> <%=@post.time_passed %> hours ago | 
+      <a href="/post/<%=@post.id%>"> 
+        <%=@post.comments.count%> Comments</a></span></li>
+</ul>
+
+<form action="/create_comment" method="post">
+  <textarea cols="80" rows="8" name="post[content]">
+  </textarea>
+  <input type="hidden" name="post[post_id]" value="<%=@post.id%>">
+  <input type="submit" value="add comment">
+</form>
+
+<%@post.comments.each do |comment|%>
+  <ul>
+    <li><span class="second">by <%=comment.user.username%></a> <%=comment.time_passed %> hours ago </span></li>
+    <li><%=comment.content%></li>
+</ul>
+
+
+  <%end%>
+
+</div>

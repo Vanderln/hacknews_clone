@@ -1,0 +1,42 @@
+.container {
+  margin: 20px auto;
+  width: 900px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+
+.nav {
+  display: inline;
+  margin: 0 auto;
+}
+th {
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.second {
+  font-size: 12px;
+}
+
+.container ol ul{
+  list-style-type: none;
+}
+
+.nav ul {
+  display: inline;
+  list-style-type: none;
+}
+
+.nav li {
+
+  padding: 30px;
+  display: inline;
+}

@@ -1,0 +1,21 @@
+<div class="container">
+  <h3>Create user</h3>
+  <form action="/create_user" method="post">
+    <label>Username:</label>
+    <input type="text" name="post[username]" placeholder="username" autofocus>
+    <br>
+    <br>
+    <label>Password:</label>
+    <input type="password" name="post[password]" placeholder="password">
+    <input type="submit" value="Submit">
+  </form>
+  
+  <%if @user%>
+  <%if @user.errors%>
+  <%@user.errors.each do |error, value|%>
+  <h3><%=value%></h3>
+  <%end%>
+  <%end%>
+  <%end%>
+
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+<h3> Welcome to <%=current_user.username%>'s Comments Page</h3>
+
+<% current_user.posts.each do |post|%>
+<%post.comments.each do |comment|%>
+
+<ul>
+  <li><a href="/user/posts/<%=comment.post_id %>"><%=comment.post.title%></a></li>
+    <ul>
+      <li><%=comment.content%></li>
+    </ul>
+</ul>
+
+  <%end%>
+  <%end%>
+</div>
