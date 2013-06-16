@@ -4,10 +4,10 @@
 		<%@all_posts.each do |post| %>
 		<%if logged_in?%>
 		<li>
-			<form action="/postvote/<%=post.id%>">
+			<form action="/postvote/<%=post.id%>" method="post">
 				<input class="vote" type="submit" value="Yay!">
 				<%end%>
-				<span class="count"><%=post.postvotes.first.votes%></span> Votes
+				<span class="count"><%=post.postvotes.sum('votes')%></span> Votes
 				<%if logged_in?%>
 				<input class="vote" type="submit" value="Nay!">
 				

@@ -3,7 +3,7 @@ class CreateCommentvotes < ActiveRecord::Migration
     create_table :commentvotes do |t|
       t.integer :comment_id
       t.integer :votes, :default => 0
-
+      t.integer :user_id
       t.timestamps
     end
   end

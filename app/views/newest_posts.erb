@@ -6,7 +6,7 @@
 			<form action="/postvote/<%=post.id%>">
 				<input class="vote" type="submit" value="Yay!">
 			
-				<span class="count"><%=post.postvotes.first.votes%></span> Votes
+				<span class="count"><%=post.postvotes.sum('votes')%></span> Votes
 				
 				<input class="vote" type="submit" value="Nay!">
 				

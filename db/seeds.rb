@@ -13,10 +13,10 @@ end
                  :user_id => 1+rand(15), :post_id => 1+rand(100))
 end
 
-Post.all.each do |post|
-	post.postvotes << Postvote.create(:post_id => post.id)
+500.times do
+	Postvote.create(:post_id => 1 + rand(100), :user_id => 1 + rand(15), :votes => [-1,1].sample)
 end
 
-Comment.all.each do |comment|
-	comment.commentvotes << Commentvote.create(:comment_id => comment.id)
+500.times do
+	Commentvote.create(:comment_id => 1 + rand(200), :user_id => 1 + rand(15), :votes => [-1,1].sample)
 end

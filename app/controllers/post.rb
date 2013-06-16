@@ -15,6 +15,7 @@ post '/create_comment' do
   @post = Post.find_by_id(params[:post][:post_id])
   @comment = Comment.create(:content => params[:post][:content], 
                             :post_id => params[:post][:post_id], :user_id => current_user.id)
+  @comment.commentvotes << Commentvote.create(:comment_id => @comment.id)
   redirect to "/user/posts/#{@post.id}"
 end
 
@@ -22,5 +23,6 @@ post '/create_post' do
   @post = Post.create(:title => params[:post][:title],
                       :url => params[:post][:url],
                       :user_id => current_user.id)
+  @post.postvotes << Postvote.create(:post_id => @post.id)
   redirect to "/user/posts/#{@post.id}"
 end

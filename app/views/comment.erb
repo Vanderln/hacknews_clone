@@ -16,7 +16,18 @@
 </form>
 
 <%@post.comments.each do |comment|%>
-  <ul>
+<ul class="com_ul">
+  <%if logged_in?%>
+  
+    <form action="/commentvote/<%=comment.id%>" method-"post">
+        <input class="commentvote" type="submit" value="Yay!">
+        <%end%>
+        <span class="count"><%=comment.commentvotes.sum('votes')%></span> Votes
+        <%if logged_in?%>
+        <input class="commentvote" type="submit" value="Nay!">
+        
+      </form>
+      <%end%>
     <li><span class="second">by <%=comment.user.username%></a> <%=comment.time_passed %> hours ago </span></li>
     <li><%=comment.content%></li>
 </ul>

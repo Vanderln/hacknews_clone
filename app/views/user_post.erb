@@ -1,8 +1,16 @@
  <div class="container">
-<h3>Welcome to <%=current_user.username%>'s Submissions Page!<h3>
+  <%if @posts.first%>
+<h3>Welcome to <%=@posts.first.user.username%>'s Submissions Page!<h3>
   <%@posts.each do |post|%>
+
   <ul>
     <li><a href="posts/<%=post.id%>"><%=post.title%></a></li>
   </ul>
+  <%end%>
+  <%elsif current_user%>
+  <h3>Welcome to <%=current_user.username%>'s Submissions Page!<h3>
+    <h3> <%=current_user.username%> does not have any submissions</h3>
+    
+  
   <%end%>
 </div>

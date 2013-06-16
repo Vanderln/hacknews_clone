@@ -3,7 +3,7 @@ class CreatePostvotes < ActiveRecord::Migration
     create_table :postvotes do |t|
       t.integer :post_id
       t.integer :votes, :default => 0
-
+      t.integer :user_id
 
       t.timestamps
     end
