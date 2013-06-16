@@ -25,11 +25,12 @@
     <%if logged_in?%>
     <li><a href="/create_post">submit</a></li>
     <li><a href="/user/<%=current_user.id%>/comments">comments</a></li>
-    <li><a href="/user/<%=current_user.id%>/user_profile"><%=current_user.username%></a></li>
+    <li><a href="/user/user_profile/<%=current_user.id%>">(<%=current_user.username%>)</a></li>
     <li><a href="/logout">logout</a></li>
     <%end%>
     <%if !logged_in?%>
     <li><a href="/login">login</a></li>
+    <li><a href="/create_user">Create Account</a></li>
   </ul>
     <%end%>
   </div>

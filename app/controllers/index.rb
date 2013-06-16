@@ -1,5 +1,6 @@
 get '/' do
   @all_posts = Post.order("title")
+
    erb :index
 end
 

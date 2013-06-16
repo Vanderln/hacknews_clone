@@ -1,12 +1,23 @@
 <div class="container">
-  
-<ol>
-  <%@all_posts.each do |post| %>
 
-  <li><a href="<%=post.url %>"><%=post.title %></a></li>
-  <ul>
-    <li><span class="second"><a href="/user/<%=post.user_id%>">by <%=post.user.username%></a> <%=post.time_passed %> hours ago | <a href="/post/<%=post.id%>"> <%=post.comments.count%> Comments</a></span></li>
-  </ul>
-  <% end %>
-</ol>
+	<ol>
+		<%@all_posts.each do |post| %>
+		<%if logged_in?%>
+		<li>
+			<form action="/postvote/<%=post.id%>">
+				<input class="vote" type="submit" value="Yay!">
+				<%end%>
+				<span class="count"><%=post.postvotes.first.votes%></span> Votes
+				<%if logged_in?%>
+				<input class="vote" type="submit" value="Nay!">
+				
+			</form>
+			<%end%>
+			<a href="<%=post.url %>"><%=post.title %></a>
+		</li>
+		<ul>
+			<li><span class="second"><a href="/user/<%=post.user_id%>">by <%=post.user.username%></a> <%=post.time_passed %> hours ago | <a href="/post/<%=post.id%>"> <%=post.comments.count%> Comments</a></span></li>
+		</ul>
+		<% end %>
+	</ol>
 </div>

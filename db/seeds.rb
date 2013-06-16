@@ -12,3 +12,11 @@ end
   Comment.create(:content => Faker::Lorem.sentences(3).join(' '),
                  :user_id => 1+rand(15), :post_id => 1+rand(100))
 end
+
+Post.all.each do |post|
+	post.postvotes << Postvote.create(:post_id => post.id)
+end
+
+Comment.all.each do |comment|
+	comment.commentvotes << Commentvote.create(:comment_id => comment.id)
+end

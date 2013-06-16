@@ -40,3 +40,9 @@ a:hover{
   padding: 30px;
   display: inline;
 }
+
+button {
+  width: 30px;
+  height: 10px;
+  font-size: 8px;
+}

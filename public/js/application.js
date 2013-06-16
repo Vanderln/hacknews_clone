@@ -1,7 +1,22 @@
+vote_value = 0
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $('.vote').on('click', function(e){
+  	e.preventDefault();
+  	var url = $(this).parent().attr('action');
+  	var vote = $(this).attr('value');
+  	var target = $(this).siblings('.count').first();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  	if (vote === 'Nay!'){
+  		voteValue = -1;
+  	} else if (vote === 'Yay!') {
+  		voteValue = 1;
+  	}
+  	var currCount = target.text();
+  	var newCount = parseInt(voteValue) + parseInt(currCount);
+  	$.post(url, { "voteValue" : voteValue }, function(response){
+  	console.log(response);
+  	});
+  	target.text(String(newCount));
+  	
+  });
 });
