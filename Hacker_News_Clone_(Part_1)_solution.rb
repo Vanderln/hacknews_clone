@@ -1,1 +1,0 @@
-# Solution for Challenge: Hacker News Clone (Part 1). Started 2013-06-12T15:17:35+00:00
