@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
 
   include BCrypt
 
-  validates_presence_of :username, :message => "You need a password. Don't you understand boundaries?"
+  validates_presence_of :username, :message => "You need a password."
   validates_uniqueness_of :username, :message => "You're already signed up."
   
-  validates_presence_of :password, :message => "You need a password. Don't you understand boundaries?"
+  validates_presence_of :password, :message => "You need a password."
 
   def password
     @password ||= Password.new(password_hash)
